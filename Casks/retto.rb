@@ -21,8 +21,9 @@ cask "retto" do
   # 예전 `--no-quarantine` 이 하던 일이고, 옛 설치.command 가 하던 일과 같다.
   # 공식 homebrew-cask 는 이 방식을 받지 않는다 — 서명을 붙이면 이 블록을 빼야 한다.
   postflight_steps do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Retto.app"]
+    # `chdir: "."` 이 없으면 인자의 `Retto.app` 이 엉뚱한 자리에서 풀려 설치가 실패한다.
+    # `base:` 는 명령 경로에만 붙고 인자에는 안 붙는다.
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "Retto.app"], chdir: "."
   end
 
   # 훅 등록·상태 파일·자동 실행까지 앱이 스스로 걷어낸다. --keep-app 은 번들을 남겨
