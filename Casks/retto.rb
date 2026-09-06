@@ -20,7 +20,7 @@ cask "retto" do
   #
   # 예전 `--no-quarantine` 이 하던 일이고, 옛 설치.command 가 하던 일과 같다.
   # 공식 homebrew-cask 는 이 방식을 받지 않는다 — 서명을 붙이면 이 블록을 빼야 한다.
-  postflight do
+  postflight_steps do
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/Retto.app"]
   end
