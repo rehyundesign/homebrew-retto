@@ -1,6 +1,6 @@
 cask "retto" do
-  version "0.11.0"
-  sha256 "9ec3cbeb119c072599de7243f86ba5b4dabb34e77da31735f9f18139a22c9c68"
+  version "0.12.0"
+  sha256 "4d54f3b452319891cc1c51575678df5d7e111a0ff2a9de0ca8b1fbe4c84edba3"
 
   url "https://github.com/rehyundesign/retto/releases/download/v#{version}/Retto-#{version}.dmg"
   name "Retto"
